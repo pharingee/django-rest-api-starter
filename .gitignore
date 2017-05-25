@@ -83,7 +83,8 @@ Icon
 #heroku
 heroku.log
 
-.env
+# Uncomment before first commit
+# .env
 
 staticfiles
 media/
