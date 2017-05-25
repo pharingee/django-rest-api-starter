@@ -1,0 +1,20 @@
+from base import *
+
+
+# Email Settings =============
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = os.environ.get('SENDGRID_USERNAME')
+EMAIL_HOST_PASSWORD = os.environ.get('SENDGRID_PASSWORD')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
+S3_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_SECURE_URLS = bool(int(os.environ.get('AWS_S3_SECURE_URLS', '0')))
+AWS_QUERYSTRING_AUTH = bool(int(os.environ.get('AWS_QUERYSTRING_AUTH', '0')))
+AWS_S3_ACCESS_KEY_ID = os.environ.get('AWS_S3_ACCESS_KEY_ID')
+AWS_S3_SECRET_ACCESS_KEY = os.environ.get('AWS_S3_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
